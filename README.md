@@ -22,48 +22,48 @@ Comandos
 -------------------------------
 Listar imagens
 ```sh
-	docker images
+	$ sudo docker images
 ```
 Lista container em funcionamento
 ```sh
-	docker ps
+	$ sudo docker ps
 ```
 Lista todos os container
 ```sh
-	docker ps -a
+	$ sudo docker ps -a
 ```
 Faz o download de imagens do dockerhub
 ```sh
-	docker pull nome_imagem
+	$ sudo docker pull nome_imagem
 ```
 Remover imagem
 ```sh
-	docker rmi id_ou_nome_imagem
+	$ sudo docker rmi id_ou_nome_imagem
 ```
 Acessar shell dentro do container (-i = interatividade, -t = tty terminal)
 ```sh
-	docker exec -i -t blog-alura bash
-	docker run -it ubuntu bash
+	$ sudo docker exec -i -t blog-alura bash
+	$ sudo docker run -it ubuntu bash
 ```
 Remover container (1por1)
 ```sh
-	docker rm id_ou_nome_container
+	$ sudo docker rm id_ou_nome_container
 ```
 Remover container (vários) (-q = listar ids, -a = all), ($ = função shell script)
 ```sh
-	docker rm $(docker ps -qa)
+	$ sudo docker rm $(docker ps -qa)
 ```
 Parar container (se rodar o rm seguido do parametro -f não há a necessidade de parar o container para remove-lo)
 ```sh
-	docker stop id_ou_nome_container
+	$ sudo docker stop id_ou_nome_container
 ```
 Verificar quanto cpu esta sendo utilizado por determinado container
 ```sh
-	sudo docker stats id_ou_nome_container
+	$ sudo docker stats id_ou_nome_container
 ```
 Monitoramento de containers com cAdvisor (rodar comando linha-por-linha)
 ```sh
-	sudo docker run \
+	$ sudo docker run \
 	  --volume=/:/rootfs:ro \
   	  --volume=/var/run:/var/run:rw \
 	  --volume=/sys:/sys:ro \
@@ -77,31 +77,31 @@ Obs.: Depois é só acessar localhost:8080
 
 Criar container descartáveis (ubuntu = nome_imagem, --rm = destroi container após sair da execução do bash)
 ```sh
-	docker run --rm -it ubuntu bash
+	$ sudo docker run --rm -it ubuntu bash
 ```
 Matar container (utilizado quando esta travado)
 ```sh
-	docker kill id_ou_nome_container
+	$ sudo docker kill id_ou_nome_container
 ```
 Parar/retomar container
 ```sh
-	docker stop id_ou_nome_container
-	docker start id_ou_nome_container
+	$ sudo docker stop id_ou_nome_container
+	$ sudo docker start id_ou_nome_container
 ```
 Executar comando dentro do container (bash = comando)
 ```sh
-	sudo docker exec -it nome_container_ativo bash
+	$ sudo docker exec -it nome_container_ativo bash
 ```
 Executar comando dentro do container sem precisar acessa-lo (saida no bash local)
 ```sh
 	sudo docker exec -it nome_container_ativo comando
 ```
-	ex: sudo docker exec -it blog-alura echo $PATH
-	ex: sudo docker exec -it blog-alura ps aux
+	ex: $ sudo docker exec -it blog-alura echo $PATH
+	ex: $ sudo docker exec -it blog-alura ps aux
 
 Fazer commit para uma nova imagem
 ```sh
-	docker commit -m "instalação do apache" [nome ou id do container] [imagem]/apache
+	$ sudo docker commit -m "instalação do apache" [nome ou id do container] [imagem]/apache
 ```
 	ex: docker commit -m "instalação do apache" id_ou_nome_container ubuntu/apache
 
@@ -110,17 +110,17 @@ foi realizado o commit deste container para criar a imagem ubuntu/apache
 
 Iniciar apache
 ```sh
-	apachectl start
+	$ sudo apachectl start
 ```
 Cria uma nova imagem, usando como base o arquivo Dockerfile (ubuntu/apache = nome da imagem, . = aqui
 (caminho do Dockerfile))
 ```sh
-	docker build -t ubuntu/apache .
-	```
+	$ sudo docker build -t ubuntu/apache .
+```
 	
 Subir container depois da build da imagem
 ```sh
-	docker run -d -p 80:80 ubuntu/apache
+	$ sudo docker run -d -p 80:80 ubuntu/apache
 ```
 
 Docker file (exemplo da imagem ubuntu instalando o apache e rodando em FOREGROUND na porta 80)
@@ -193,8 +193,8 @@ Atribuição de senha, usa-se sempre = e não : (dois pontos);
 
 Executar arquivo docker-compose.yml (-d = rodar processos em background (sem bloquear shell))
 ```sh
-		docker-compose up
-		docker-compose up -d
+		$ sudo docker-compose up
+		$ sudo docker-compose up -d
 ```
 
 Criar volumes no docker (volumes = diretório local, diretório mapeado no container)
@@ -225,6 +225,6 @@ ex1:
 
 Matar e deletar containers com docker-compose
 ```sh
-	docker-compose kill
-	docker-compose rm
+	$ sudo docker-compose kill
+	$ sudo docker-compose rm
 ```

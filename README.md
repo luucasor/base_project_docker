@@ -23,44 +23,44 @@ Comandos
 Listar imagens
 ```sh
 	docker images
-
+```
 Lista container em funcionamento
 ```sh
 	docker ps
-
+```
 Lista todos os container
 ```sh
 	docker ps -a
-
+```
 Faz o download de imagens do dockerhub
 ```sh
 	docker pull nome_imagem
-
+```
 Remover imagem
 ```sh
 	docker rmi id_ou_nome_imagem
-
+```
 Acessar shell dentro do container (-i = interatividade, -t = tty terminal)
 ```sh
 	docker exec -i -t blog-alura bash
 	docker run -it ubuntu bash
-
+```
 Remover container (1por1)
 ```sh
 	docker rm id_ou_nome_container
-
+```
 Remover container (vários) (-q = listar ids, -a = all), ($ = função shell script)
 ```sh
 	docker rm $(docker ps -qa)
-
+```
 Parar container (se rodar o rm seguido do parametro -f não há a necessidade de parar o container para remove-lo)
 ```sh
 	docker stop id_ou_nome_container
-
+```
 Verificar quanto cpu esta sendo utilizado por determinado container
 ```sh
 	sudo docker stats id_ou_nome_container
-
+```
 Monitoramento de containers com cAdvisor (rodar comando linha-por-linha)
 ```sh
 	sudo docker run \
@@ -72,26 +72,26 @@ Monitoramento de containers com cAdvisor (rodar comando linha-por-linha)
 	  --detach=true \
 	  --name=cadvisor \
 	  google/cadvisor:latest
-
+```
 Obs.: Depois é só acessar localhost:8080
 
 Criar container descartáveis (ubuntu = nome_imagem, --rm = destroi container após sair da execução do bash)
 ```sh
 	docker run --rm -it ubuntu bash
-
+```
 Matar container (utilizado quando esta travado)
 ```sh
 	docker kill id_ou_nome_container
-
+```
 Parar/retomar container
 ```sh
 	docker stop id_ou_nome_container
 	docker start id_ou_nome_container
-
+```
 Executar comando dentro do container (bash = comando)
 ```sh
 	sudo docker exec -it nome_container_ativo bash
-
+```
 Executar comando dentro do container sem precisar acessa-lo (saida no bash local)
 ```sh
 	sudo docker exec -it nome_container_ativo comando

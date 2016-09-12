@@ -221,7 +221,7 @@ ex1:
 			- db:mysql
 		ports:
 			- 80:80
-```sh
+```
 
 Matar e deletar containers com docker-compose
 ```sh

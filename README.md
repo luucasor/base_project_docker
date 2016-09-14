@@ -234,3 +234,8 @@ Copiar um arquivo do container para host/ host para container
 	$ sudo docker cp <nome_container>:/caminho/container /caminho/maquina/local
 	$ sudo docker cp /caminho/maquina/local  <nome_container>:/caminho/container
 ```
+
+Mostrar ip do container
+```sh
+	$ sudo docker inspect nome_ou_id_container | grep IPAddress
+```

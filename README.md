@@ -118,7 +118,7 @@ Cria uma nova imagem, usando como base o arquivo Dockerfile (ubuntu/apache = nom
 	$ sudo docker build -t ubuntu/apache .
 ```
 	
-Subir container depois da build da imagem
+Subir container depois da build da imagem (ubuntu/apache = nome dado a nova imagem)
 ```sh
 	$ sudo docker run -d -p 80:80 ubuntu/apache
 ```

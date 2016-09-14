@@ -228,3 +228,9 @@ Matar e deletar containers com docker-compose
 	$ sudo docker-compose kill
 	$ sudo docker-compose rm
 ```
+
+Copiar um arquivo do container para host/ host para container
+```sh
+	$ sudo docker cp <nome_container>:/caminho/container /caminho/maquina/local
+	$ sudo docker cp /caminho/maquina/local  <nome_container>:/caminho/container
+```
